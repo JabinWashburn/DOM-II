@@ -24,11 +24,15 @@ function hoverEventHandler(e){
 document.querySelector('a').addEventListener('mouseover', hoverEventHandler);
 
 // mouseover end 
+
+
 window.addEventListener('keydown', (e) =>{
   alert('Check the console n00b');
   console.log(e.key);
 });
 //keydown end :) this one is funny go do it. 
+
+
 function zoom(e){
   e.preventDefault();
 
@@ -42,3 +46,48 @@ function zoom(e){
 let scale = 1;
 const el = document.querySelector('img');
 el.onwheel = zoom;
+// zoom end here 
+
+
+var dragged;
+
+document.addEventListener('drag', function (e){
+
+}, false); 
+
+document.addEventListener('dragstart', function (e){
+  // if(e.target.className == 'nav-link'){
+    dragged = e.target;
+    e.target.style.opacity = .5;
+    // alert('Testing');
+  // };
+}, false);
+
+document.addEventListener('dragend', function(e){
+  e.target.style.opacity = '';
+}, false);
+
+document.addEventListener('dragover', function(e){
+  e.preventDefault();
+}, false);
+
+document.addEventListener('dragenter', function (e){
+  if(e.target.className == 'nav'){
+    e.target.style.background = 'purple';
+  }
+}, false);
+
+document.addEventListener('dragleave', function(e){
+  if (e.target.className == 'nav'){
+    e.target.style.background = '';
+  }
+}, false); 
+
+document.addEventListener('drop', function(e){
+  e.preventDefault(); 
+  if (e.target.className == 'nav'){
+    e.target.style.background = '';
+    dragged.parentNode.removeChild(dragged);
+    e.target.appendChild(dragged);
+  }
+}, false);
