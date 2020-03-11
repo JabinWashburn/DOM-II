@@ -58,11 +58,8 @@ document.addEventListener('drag', function (e){
 }, false); 
 
 document.addEventListener('dragstart', function (e){
-  // if(e.target.className == 'nav-link'){
     dragged = e.target;
     e.target.style.opacity = .5;
-    // alert('Testing');
-  // };
 }, false);
 
 document.addEventListener('dragend', function(e){
@@ -157,3 +154,12 @@ input.addEventListener('select', logSelection);
  doubleThing.addEventListener('dblclick', function(e){
    e.target.style.background = 'green';
  });
+
+//here is the end of double click 
+//using preventDefault.
+
+document.querySelector('a').addEventListener('click', function (e){
+  e.preventDefault();
+  alert('no refreshy');
+});
+//when you click a link it tells you 'no refreshy'
